@@ -2,19 +2,4 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<header>
-    <!-- Fixed navbar -->
-    <partial name="_PartialNavBar.cshtml" />
-</header>
-
-<!-- Begin page content -->
-<main role="main" class="container">
-    @RenderBody()
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-    </div>
-</footer>
-
+@RenderBody()
