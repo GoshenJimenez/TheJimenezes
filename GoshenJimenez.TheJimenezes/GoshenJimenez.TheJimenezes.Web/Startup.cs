@@ -2,6 +2,7 @@ using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,6 +37,27 @@ namespace GoshenJimenez.TheJimenezes.Web
                     }
             ));
 
+            var cultures = new List<CultureInfo>();
+            cultures.Add(new CultureInfo("en-US"));
+            cultures.Add(new CultureInfo("fil-PH"));
+            cultures.Add(new CultureInfo("zh-HK"));
+
+            services.AddLocalization(options => options.ResourcesPath = "Localization");
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = cultures;
+                options.SupportedUICultures = cultures;
+
+                options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+                {
+                    return new ProviderCultureResult("en-US");
+                }));
+                options.RequestCultureProviders = new List<IRequestCultureProvider>
+                {
+                    new AcceptLanguageHeaderRequestCultureProvider()
+                };
+            });
             services.AddControllersWithViews();
         }
 
@@ -57,6 +80,20 @@ namespace GoshenJimenez.TheJimenezes.Web
             app.UseRouting();
 
             app.UseAuthorization();
+
+            var cultures = new List<CultureInfo>();
+            cultures.Add(new CultureInfo("en-US"));
+            cultures.Add(new CultureInfo("fil-PH"));
+            cultures.Add(new CultureInfo("zh-HK"));
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                // Formatting numbers, dates, etc.
+                SupportedCultures = cultures,
+                // UI strings that we have localized.
+                SupportedUICultures = cultures
+            });
 
             app.UseEndpoints(endpoints =>
             {

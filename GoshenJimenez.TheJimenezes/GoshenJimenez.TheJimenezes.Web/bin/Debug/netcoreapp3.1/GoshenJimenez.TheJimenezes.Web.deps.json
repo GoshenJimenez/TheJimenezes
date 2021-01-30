@@ -300,6 +300,14 @@
         "runtime": {
           "GoshenJimenez.TheJimenezes.Web.dll": {}
         },
+        "resources": {
+          "en-US/GoshenJimenez.TheJimenezes.Web.resources.dll": {
+            "locale": "en-US"
+          },
+          "fil-PH/GoshenJimenez.TheJimenezes.Web.resources.dll": {
+            "locale": "fil-PH"
+          }
+        },
         "compile": {
           "GoshenJimenez.TheJimenezes.Web.dll": {}
         }
