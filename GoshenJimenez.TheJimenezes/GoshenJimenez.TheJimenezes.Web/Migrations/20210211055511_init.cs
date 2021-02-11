@@ -232,18 +232,33 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                 columns: new[] { "Id", "BannerUrl", "ColumnType", "CreatedAt", "IconUrl", "Layout", "SubTitle", "Title", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 578, DateTimeKind.Utc).AddTicks(5387), "", null, "", "Projects", new DateTime(2021, 2, 4, 5, 12, 25, 578, DateTimeKind.Utc).AddTicks(7199) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(22), "", null, "", "Programming", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(65) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(268), "", null, "", "Tech Talk", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(272) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(285), "", null, "", "Parallax", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(288) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(296), "", null, "", "Parallax II", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(298) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(342), "", null, "", "Travel Logs", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(345) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(353), "", null, "", "Food Reviews", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(355) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(362), "", null, "", "Fambam!", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(364) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(373), "", null, "", "Xiah's World", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(375) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(471), "", null, "", "Ayu's Corner", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(474) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(483), "", null, "", "Sights and Visions", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(485) }
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(416), "", null, "", "Projects", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(1679) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9310), "", null, "", "Programming", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9343) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9484), "", null, "", "Tech Talk", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9490) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9503), "", null, "", "Parallax", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9505) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9511), "", null, "", "Parallax II", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9512) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9526), "", null, "", "Travel Logs", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9528) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9533), "", null, "", "Food Reviews", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9535) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9541), "", null, "", "Fambam!", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9542) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9547), "", null, "", "Xiah's World", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9551) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9568), "", null, "", "Ayu's Corner", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9570) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9576), "", null, "", "Sights and Visions", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9578) }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be200"), "Goshen", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 275, DateTimeKind.Utc).AddTicks(3636), false, null, 0, false, false, 0m, false, "Project 1", "Project 1", 0, new DateTime(2021, 2, 11, 5, 55, 10, 275, DateTimeKind.Utc).AddTicks(3670), null, 0 });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be201"), "Tere", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1179), false, null, 0, false, false, 0m, false, "Project 2", "Project 2", 0, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1200), null, 0 });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be202"), "Aya", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1315), false, null, 0, false, false, 0m, false, "Project 3", "Project 3", 0, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1317), null, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attachments_PostId",

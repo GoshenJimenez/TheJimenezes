@@ -120,6 +120,39 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain
 
             modelBuilder.Entity<Column>()
                .HasData(columns);
+
+
+            List<Post> posts = new List<Post>()
+            {
+                new Post()
+                {
+                    Id = Guid.Parse("13febb22-f596-4b1e-b0a8-b11ad54be200"),
+                    Title = "Project 1",
+                    SubTitle = "Project 1",
+                    Author = "Goshen",
+                    ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
+                    Type = Enums.PostType.Article
+                },new Post()
+                {
+                    Id = Guid.Parse("13febb22-f596-4b1e-b0a8-b11ad54be201"),
+                    Title = "Project 2",
+                    SubTitle = "Project 2",
+                    Author = "Tere",
+                    ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
+                    Type = Enums.PostType.Article
+                },new Post()
+                {
+                    Id = Guid.Parse("13febb22-f596-4b1e-b0a8-b11ad54be202"),
+                    Title = "Project 3",
+                    SubTitle = "Project 3",
+                    Author = "Aya",
+                    ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
+                    Type = Enums.PostType.Article
+                }
+            };
+
+            modelBuilder.Entity<Post>()
+                .HasData(posts);
         }
     }
 }

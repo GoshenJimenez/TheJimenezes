@@ -1,0 +1,42 @@
+﻿@model GoshenJimenez.TheJimenezes.Web.ViewModels.Columns.ColumnViewModel;
+
+
+@{
+    if (Model != null)
+    {
+        <h1>@Model.Title</h1>
+        <span>@Model.SubTitle</span>
+
+        if (Model.Posts != null)
+        {
+            if (Model.Posts.Count > 0)
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Post Title</th>
+                            <th>Subtitle</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var post in Model.Posts)
+                            {
+                                <tr>
+                                    <td>@post.Title</td>
+                                    <td>@post.SubTitle</td>
+                                    <td>@post.Author</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            };
+        }
+    }
+}
+
+
+
+

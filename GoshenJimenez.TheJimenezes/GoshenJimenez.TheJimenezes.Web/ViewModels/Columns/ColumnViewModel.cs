@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace GoshenJimenez.TheJimenezes.Web.ViewModels.Columns
 {
+    public class PostViewModel : Post
+    {
+
+    }
+
     public class ColumnViewModel : Column
     {
+        public List<PostViewModel> Posts { get; set; } 
     }
 }

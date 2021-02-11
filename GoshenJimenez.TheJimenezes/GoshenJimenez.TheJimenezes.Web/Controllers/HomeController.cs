@@ -48,7 +48,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpGet("columns/{type}")]
+        [HttpGet("api/columns-per-type/{type}")]
         public List<ColumnViewModel> GetColumns(string type = "")
         {
             if (string.IsNullOrEmpty(type))
