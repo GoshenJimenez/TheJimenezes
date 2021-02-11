@@ -72,3 +72,4 @@ C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenez
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\bin\Debug\netcoreapp3.1\zh-HK\GoshenJimenez.TheJimenezes.Web.resources.dll
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\obj\Debug\netcoreapp3.1\GoshenJimenez.TheJimenezes.Web.Localization.StringResource.zh-HK.resources
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\obj\Debug\netcoreapp3.1\zh-HK\GoshenJimenez.TheJimenezes.Web.resources.dll
+C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialColumnTypeSelector.cshtml.g.cs

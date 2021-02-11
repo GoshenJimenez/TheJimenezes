@@ -227,6 +227,24 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Columns",
+                columns: new[] { "Id", "BannerUrl", "ColumnType", "CreatedAt", "IconUrl", "Layout", "SubTitle", "Title", "UpdatedAt" },
+                values: new object[,]
+                {
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 578, DateTimeKind.Utc).AddTicks(5387), "", null, "", "Projects", new DateTime(2021, 2, 4, 5, 12, 25, 578, DateTimeKind.Utc).AddTicks(7199) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(22), "", null, "", "Programming", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(65) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(268), "", null, "", "Tech Talk", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(272) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(285), "", null, "", "Parallax", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(288) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(296), "", null, "", "Parallax II", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(298) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(342), "", null, "", "Travel Logs", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(345) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(353), "", null, "", "Food Reviews", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(355) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(362), "", null, "", "Fambam!", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(364) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(373), "", null, "", "Xiah's World", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(375) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(471), "", null, "", "Ayu's Corner", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(474) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(483), "", null, "", "Sights and Visions", new DateTime(2021, 2, 4, 5, 12, 25, 580, DateTimeKind.Utc).AddTicks(485) }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Attachments_PostId",
                 table: "Attachments",

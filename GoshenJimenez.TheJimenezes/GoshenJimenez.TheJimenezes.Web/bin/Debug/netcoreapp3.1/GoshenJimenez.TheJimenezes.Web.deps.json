@@ -306,6 +306,9 @@
           },
           "fil-PH/GoshenJimenez.TheJimenezes.Web.resources.dll": {
             "locale": "fil-PH"
+          },
+          "zh-HK/GoshenJimenez.TheJimenezes.Web.resources.dll": {
+            "locale": "zh-HK"
           }
         },
         "compile": {

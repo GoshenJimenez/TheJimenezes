@@ -1,5 +1,8 @@
-﻿using GoshenJimenez.TheJimenezes.Web.Infrastructure.Localization;
+﻿using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
+using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Enums;
+using GoshenJimenez.TheJimenezes.Web.Infrastructure.Localization;
 using GoshenJimenez.TheJimenezes.Web.Models;
+using GoshenJimenez.TheJimenezes.Web.ViewModels.Columns;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -17,12 +20,14 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IStringLocalizer _localizer;
-        public HomeController(ILogger<HomeController> logger, IStringLocalizerFactory factory)
+        private readonly DefaultDbContext _context;
+        public HomeController(ILogger<HomeController> logger, IStringLocalizerFactory factory, DefaultDbContext context)
         {
             var type = typeof(StringResource);
             var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
             _localizer = factory.Create("StringResource", assemblyName.Name);
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -41,6 +46,27 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet("columns/{type}")]
+        public List<ColumnViewModel> GetColumns(string type = "")
+        {
+            if (string.IsNullOrEmpty(type))
+            {
+                return null;
+            }
+
+            ColumnType columnType = (ColumnType)Enum.Parse(typeof(ColumnType), type, true);
+
+            return _context.Columns.Where(c => c.ColumnType == columnType)
+                .Select(c => new ColumnViewModel()
+                {
+                    Id = c.Id,
+                    SubTitle = c.SubTitle,
+                    Title = c.Title,
+                    CreatedAt = c.CreatedAt,
+                    IconUrl = c.IconUrl
+                }).ToList();
         }
     }
 }
