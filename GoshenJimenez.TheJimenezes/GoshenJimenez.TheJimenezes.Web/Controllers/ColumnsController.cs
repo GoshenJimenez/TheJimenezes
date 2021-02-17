@@ -1,6 +1,7 @@
 ﻿using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
 using GoshenJimenez.TheJimenezes.Web.Infrastructure.Localization;
 using GoshenJimenez.TheJimenezes.Web.ViewModels.Columns;
+using GoshenJimenez.TheJimenezes.Web.ViewModels.Posts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -58,7 +59,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
                 });
             }
 
-            return View();
+            return NotFound();
         }
     }
 }

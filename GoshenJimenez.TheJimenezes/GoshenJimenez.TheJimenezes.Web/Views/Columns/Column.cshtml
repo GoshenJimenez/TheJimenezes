@@ -24,7 +24,7 @@
                             foreach (var post in Model.Posts)
                             {
                                 <tr>
-                                    <td>@post.Title</td>
+                                    <td><a href="/posts/@post.Id"> @post.Title</a></td>
                                     <td>@post.SubTitle</td>
                                     <td>@post.Author</td>
                                 </tr>
