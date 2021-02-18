@@ -75,7 +75,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
                     _context.SaveChanges();
                 }
 
-                return RedirectPermanent("posts/" + model.PostId);
+                return RedirectPermanent("~/posts/" + model.PostId);
             }
 
             return NotFound();

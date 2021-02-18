@@ -14,6 +14,8 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models
         public Guid? UserId { get; set; }
         public User User { get; set; }
         public bool MaskUser { get; set; }
+        [MaxLength(100)]
+        public string UserName { get; set; }
 
         [MaxLength(500)]
         public string Content { get; set; }

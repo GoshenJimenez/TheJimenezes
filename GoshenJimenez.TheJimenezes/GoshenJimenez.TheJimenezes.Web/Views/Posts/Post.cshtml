@@ -54,41 +54,37 @@
         </div>
         <div class="post-comments">
             <header>
+                <h3 class="h6">Rated : <span id="rating-score">@Model.RatingAve.ToString("##.##")</span></h3>
+            </header>
+        </div>
+        <div class="post-comments">
+            <header>
                 <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
             </header>
-            <div class="comment">
-                <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                        <div class="image"><img src="~/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
-                    </div>
-                </div>
-                <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                        <div class="image"><img src="~/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
-                    </div>
-                </div>
-                <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                        <div class="image"><img src="~/img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
-                    </div>
-                </div>
-                <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                </div>
-            </div>
+            @{ 
+                if(Model.CommentItems != null)
+                {
+                    if(Model.CommentItems.Count > 0)
+                    {
+                        foreach(var comment in Model.CommentItems)
+                        {
+                        <div class="comment">
+                            <div class="comment-header d-flex justify-content-between">
+                                <div class="user d-flex align-items-center">
+                                    <div class="image"><img src="~/@(comment.UserIcon)" alt="..." class="img-fluid rounded-circle"></div>
+                                    <div class="title"><strong>@comment.UserName</strong><span class="date">@comment.UpdatedAt.ToString("dddd, dd MMMM yyyy HH:mm")</span></div>
+                                </div>
+                            </div>
+                            <div class="comment-body">
+                                <p>@comment.Content</p>
+                            </div>
+                        </div>
+                        }
+                    }
+                }
+            }
+            
+
         </div>
         <div class="add-comment">
             <header>

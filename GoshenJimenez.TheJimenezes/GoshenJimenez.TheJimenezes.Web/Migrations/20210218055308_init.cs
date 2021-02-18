@@ -148,6 +148,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                     PostId = table.Column<Guid>(nullable: false),
                     UserId = table.Column<Guid>(nullable: true),
                     MaskUser = table.Column<bool>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 100, nullable: true),
                     Content = table.Column<string>(maxLength: 500, nullable: true),
                     IsPublished = table.Column<bool>(nullable: false),
                     Likes = table.Column<int>(nullable: false),
@@ -232,33 +233,33 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                 columns: new[] { "Id", "BannerUrl", "ColumnType", "CreatedAt", "IconUrl", "Layout", "SubTitle", "Title", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(416), "", null, "", "Projects", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(1679) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9310), "", null, "", "Programming", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9343) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9484), "", null, "", "Tech Talk", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9490) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9503), "", null, "", "Parallax", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9505) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9511), "", null, "", "Parallax II", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9512) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9526), "", null, "", "Travel Logs", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9528) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9533), "", null, "", "Food Reviews", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9535) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9541), "", null, "", "Fambam!", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9542) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9547), "", null, "", "Xiah's World", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9551) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9568), "", null, "", "Ayu's Corner", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9570) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9576), "", null, "", "Sights and Visions", new DateTime(2021, 2, 11, 5, 55, 10, 270, DateTimeKind.Utc).AddTicks(9578) }
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 2, 18, 5, 53, 7, 462, DateTimeKind.Utc).AddTicks(1263), "", null, "", "Projects", new DateTime(2021, 2, 18, 5, 53, 7, 462, DateTimeKind.Utc).AddTicks(2412) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 2, 18, 5, 53, 7, 462, DateTimeKind.Utc).AddTicks(9993), "", null, "", "Programming", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(21) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(176), "", null, "", "Tech Talk", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(178) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(188), "", null, "", "Parallax", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(190) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(198), "", null, "", "Parallax II", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(199) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(213), "", null, "", "Travel Logs", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(215) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(222), "", null, "", "Food Reviews", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(223) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(230), "", null, "", "Fambam!", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(231) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(238), "", null, "", "Xiah's World", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(239) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(249), "", null, "", "Ayu's Corner", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(251) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(258), "", null, "", "Sights and Visions", new DateTime(2021, 2, 18, 5, 53, 7, 463, DateTimeKind.Utc).AddTicks(259) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be200"), "Goshen", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 275, DateTimeKind.Utc).AddTicks(3636), false, null, 0, false, false, 0m, false, "Project 1", "Project 1", 0, new DateTime(2021, 2, 11, 5, 55, 10, 275, DateTimeKind.Utc).AddTicks(3670), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be200"), "Goshen", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(1888), false, null, 0, false, false, 0m, false, "Project 1", "Project 1", 0, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(1909), null, 0 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be201"), "Tere", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1179), false, null, 0, false, false, 0m, false, "Project 2", "Project 2", 0, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1200), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be201"), "Tere", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(7190), false, null, 0, false, false, 0m, false, "Project 2", "Project 2", 0, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(7207), null, 0 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be202"), "Aya", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1315), false, null, 0, false, false, 0m, false, "Project 3", "Project 3", 0, new DateTime(2021, 2, 11, 5, 55, 10, 276, DateTimeKind.Utc).AddTicks(1317), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be202"), "Aya", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(7324), false, null, 0, false, false, 0m, false, "Project 3", "Project 3", 0, new DateTime(2021, 2, 18, 5, 53, 7, 467, DateTimeKind.Utc).AddTicks(7325), null, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attachments_PostId",
