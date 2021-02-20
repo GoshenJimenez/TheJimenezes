@@ -10,6 +10,7 @@ namespace GoshenJimenez.TheJimenezes.Web.ViewModels.Posts
     {
         public List<CommentViewModel> CommentItems { get; set; }
         public decimal RatingAve { get; set; }
+        public bool IsLiked { get; set; }
 
     }
     public class CommentViewModel 

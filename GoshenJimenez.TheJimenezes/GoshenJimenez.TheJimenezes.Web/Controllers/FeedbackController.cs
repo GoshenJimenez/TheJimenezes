@@ -81,5 +81,72 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
             return NotFound();
         }
 
+        [HttpPost("feedback/likes")]
+        public OperationViewModel AddDeductLike(LikeViewModel model)
+        {
+            //for now Hard Code the UserId = 0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000
+            Guid? userId = Guid.Parse("0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000");
+
+            var post = _context.Posts.FirstOrDefault(p => p.Id == model.PostId);
+
+            if (post != null)
+            {
+                if (post.LikesEnabled == true)
+                {
+                    var userLike = _context.Likes.FirstOrDefault(r => r.UserId == userId && r.PostId == model.PostId);
+
+                    if(userLike == null && model.IsLiked)
+                    {
+                        userLike = new Infrastructure.Domain.Models.Like()
+                        {
+                            PostId = model.PostId,
+                            UserId = userId
+                        };
+
+                        _context.Likes.Add(userLike);
+
+                        post.Likes = post.Likes + 1;
+                        _context.Posts.Update(post);
+                    }
+                    else if (userLike != null && model.IsLiked == false)
+                    {
+                        _context.Likes.Remove(userLike);
+
+                        post.Likes = post.Likes - 1;
+                        _context.Posts.Update(post);
+                    }
+                    else
+                    {
+
+                    }
+
+                    _context.SaveChanges();
+                    return new OperationViewModel()
+                    {
+                        Code = "Ok",
+                        Data = new { Likes = post.Likes, IsLiked = model.IsLiked }
+                    };
+                }
+                else
+                {
+                    return new OperationViewModel()
+                    {
+                        Code = "Fail",
+                        Messages = new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("", "Likes are disabled for this item.") },
+                        Data = new { Likes = post.Likes, IsLiked = false }
+                    };
+                }
+            }
+            else
+            {
+                return new OperationViewModel()
+                {
+                    Code = "Fail",
+                    Messages = new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("", "Target post is not found.") },
+                    Data = new { IsLiked = false }
+                };
+            }
+
+        }
     }
 }

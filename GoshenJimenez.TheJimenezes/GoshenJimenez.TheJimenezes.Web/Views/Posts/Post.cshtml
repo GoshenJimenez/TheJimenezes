@@ -54,11 +54,6 @@
         </div>
         <div class="post-comments">
             <header>
-                <h3 class="h6">Rated : <span id="rating-score">@Model.RatingAve.ToString("##.##")</span></h3>
-            </header>
-        </div>
-        <div class="post-comments">
-            <header>
                 <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
             </header>
             @{ 
@@ -89,6 +84,9 @@
         <div class="add-comment">
             <header>
                 <button class="btn btn-dark" data-toggle="collapse" data-target="#add-comment-form">Leave a feedback</button>
+                <button id="unlikeButton" class="btn btn-dark" style="@(Model.IsLiked ? "display:visible" : "display:none")" onclick="feedbackUnlike('@Model.Id')"><i class="fa fa-thumbs-down text-light"></i></button>
+                <button id="likeButton" class="btn btn-dark" style="@(Model.IsLiked ? "display:none" : "display:visible")" onclick="feedbackLike('@Model.Id')"><i class="fa fa-thumbs-up text-light"></i></button>
+                <h3 class="h6">Rated : <span id="rating-score" class="h4">@Model.RatingAve.ToString("##.##")</span><i class="fa fa-star"></i>&nbsp;&nbsp;&nbsp; Liked by : <span class="h4" id="likes">@Model.Likes</span><i class="fa fa-thumbs-up"></i> </h3>
             </header>
             <form action="/feedback/add-comment-with-rating" class="commenting-form collapse" id="add-comment-form" method="Post">
                 <div class="row">
@@ -186,7 +184,7 @@
 } 
 
 @section Scripts{ 
-<script>
+    <script>
     $(document).ready(function () {
 
         $("input[type='radio']").click(function () {
@@ -202,5 +200,61 @@
             $("#ratings").val(score);
         });
     });
-</script>
+
+    function feedbackLike(id) {
+        var model = {
+            postId: id,
+            isLiked: true
+        }
+
+        $.ajax({
+            url: "/feedback/likes",
+            dataType: "json",
+            data: model,
+            type: "POST",
+            async: false
+        }).done(function (obj) {
+            var result = obj.data;
+
+            $("#likes").html(result.likes);
+
+            if (result.isLiked == true) {
+                $("#likeButton").hide();
+                $("#unlikeButton").show();
+            }
+            else {
+                $("#unlikeButton").hide();
+                $("#likeButton").show();
+            }
+        });
+    }
+
+    function feedbackUnlike(id) {
+        var model = {
+            postId: id,
+            isLiked: false
+        }
+
+        $.ajax({
+            url: "/feedback/likes",
+            dataType: "json",
+            data: model,
+            type: "POST",
+            async: false
+        }).done(function (obj) {
+            var result = obj.data;
+
+            $("#likes").html(result.likes);
+
+            if (result.isLiked == true) {
+                $("#likeButton").hide();
+                $("#unlikeButton").show();
+            }
+            else {
+                $("#unlikeButton").hide();
+                $("#likeButton").show();
+            }
+        });
+    }
+    </script>
 } 

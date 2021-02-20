@@ -35,6 +35,9 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
         [HttpGet("posts/{id}")]
         public IActionResult Post(Guid? id)
         {
+            //for now Hard Code the UserId = 0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000
+            Guid? userId = Guid.Parse("0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000");
+
             var post = _context.Posts.FirstOrDefault(p => p.Id == id);
 
             if (post != null)
@@ -65,6 +68,13 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
                     }
                 }
 
+                var isLiked = false;
+                var liked = _context.Likes.FirstOrDefault(l => l.PostId == id && l.UserId == userId);
+
+                if(liked != null)
+                {
+                    isLiked = true;
+                }
 
                 return View(new PostViewModel()
                 {
@@ -74,7 +84,9 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
                     Title = post.Title,
                     Content = post.Content,
                     CommentItems = comments,
-                    RatingAve = ratingAve
+                    RatingAve = ratingAve,
+                    IsLiked = isLiked,
+                    Likes = post.Likes
                 });
             }
             return NotFound();
