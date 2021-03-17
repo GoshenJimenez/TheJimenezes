@@ -22,6 +22,14 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+obj/
+bin/
+debug/
+GoshenJimenez.TheJimenezes.Web/obj
+GoshenJimenez.TheJimenezes.Web/bin
+GoshenJimenez.TheJimenezes.Web/debug
+GoshenJimenez.TheJimenezes.Web/Debug
+GoshenJimenez.TheJimenezes.Web/.vs
 
 # Roslyn cache directories
 *.ide/
