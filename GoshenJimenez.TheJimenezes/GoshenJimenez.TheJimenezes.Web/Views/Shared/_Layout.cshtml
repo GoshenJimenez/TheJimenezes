@@ -33,7 +33,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <script src="https://kit.fontawesome.com/442436d045.js" crossorigin="anonymous"></script>
-    <script src="~/js/site.js"></script>
+    <link href="~/vendor/noty/noty.css" rel="stylesheet" type="text/css" />
+    <link href="~/vendor/noty/themes/metroui.css" rel="stylesheet" type="text/css" />
+    <script src="~/vendor/noty/noty.min.js"></script>
+    <style>
+        .noty_bar {
+            z-index: 1000;
+            background-color: beige;
+        }
+    </style>
 
 </head>
 <body>
@@ -55,7 +63,9 @@
                         <p>Phone: (047) 935 0795</p>
                         <p>Email: <a href="mailto:info@company.com">info@thejimenezes.com</a></p>
                         <ul class="social-menu">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#" onclick="showNoty('Alert','ABCDEF')">
+    <button type="button">Noty</button>
+</a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-behance"></i></a></li>
@@ -117,13 +127,19 @@
             </div>
         </div>
     </footer>
+    <script>
+        var currentUser = '@Guid.Parse("0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000")';
+    </script>
     <!-- JavaScript files-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="~/vendor/popper.js/umd/popper.min.js"></script>
     <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
     <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
     <script src="~/vendor/fancyapps/fancybox/jquery.fancybox.min.js"></script>
+    <script src="~/vendor/noty/noty.js"></script>
+    <script src="~/vendor/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/front.js"></script>
+    <script src="~/js/site.js"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

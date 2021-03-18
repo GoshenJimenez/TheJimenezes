@@ -1,7 +1,9 @@
-﻿using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
+﻿using GoshenJimenez.TheJimenezes.Web.Controllers;
+using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
 using GoshenJimenez.TheJimenezes.Web.Infrastructure.Localization;
 using GoshenJimenez.TheJimenezes.Web.ViewModels.Posts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,17 +17,18 @@ namespace GoshenJimenez.TheJimenezes.Web.Areas.Manage.Controllers
     [Area("manage")]
     public class PostsController : Controller
     {
-
+        private readonly IHubContext<SignalHub> _hubContext;
         private readonly ILogger<PostsController> _logger;
         private readonly IStringLocalizer _localizer;
         private readonly DefaultDbContext _context;
-        public PostsController(ILogger<PostsController> logger, IStringLocalizerFactory factory, DefaultDbContext context)
+        public PostsController(ILogger<PostsController> logger, IStringLocalizerFactory factory, DefaultDbContext context, IHubContext<SignalHub> hubContext)
         {
             var type = typeof(StringResource);
             var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
             _localizer = factory.Create("StringResource", assemblyName.Name);
             _logger = logger;
             _context = context;
+            _hubContext = hubContext;
         }
 
         [HttpGet("/manage/posts")]
@@ -49,7 +52,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Areas.Manage.Controllers
         }
 
         [HttpPost("/manage/posts/change-status")]
-        public IActionResult ChangeStatus(ChangeStatusViewModel model)
+        public async Task<IActionResult> ChangeStatus(ChangeStatusViewModel model)
         {
             var post = _context.Posts.FirstOrDefault(p => p.Id == model.PostId);
 
@@ -62,6 +65,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Areas.Manage.Controllers
             }
 
             //Post to Hub
+            await _hubContext.Clients.All.SendAsync("ReceiveNotification", Guid.Parse("0bb8a75f-68ea-4d27-9c5f-81b8cdd9d000"), "Your post " + post.Title + " has been updated to " + post.Status);
 
             return RedirectPermanent("~/manage/posts?columnId=" + model.ColumnId);
         }

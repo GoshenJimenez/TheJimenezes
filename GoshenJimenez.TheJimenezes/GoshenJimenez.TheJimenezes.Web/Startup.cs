@@ -1,3 +1,4 @@
+using GoshenJimenez.TheJimenezes.Web.Controllers;
 using GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -59,6 +60,7 @@ namespace GoshenJimenez.TheJimenezes.Web
                 };
             });
             services.AddControllersWithViews();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,6 +102,7 @@ namespace GoshenJimenez.TheJimenezes.Web
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<SignalHub>("/signalHub");
             });
         }
     }
