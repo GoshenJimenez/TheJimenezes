@@ -39,7 +39,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Controllers
 
             if(column != null)
             {
-                var posts = _context.Posts.Where(p => p.ColumnId == id).OrderByDescending(p => p.CreatedAt).Take(5)
+                var posts = _context.Posts.Where(p => p.ColumnId == id && p.Status == Infrastructure.Domain.Enums.PostStatus.Published).OrderByDescending(p => p.CreatedAt).Take(5)
                                     .Select(p => new PostViewModel()
                                     {
                                         Id = p.Id,

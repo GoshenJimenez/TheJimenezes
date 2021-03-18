@@ -131,7 +131,8 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain
                     SubTitle = "Project 1",
                     Author = "Goshen",
                     ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
-                    Type = Enums.PostType.Article
+                    Type = Enums.PostType.Article,
+                    Status = Enums.PostStatus.Published
                 },new Post()
                 {
                     Id = Guid.Parse("13febb22-f596-4b1e-b0a8-b11ad54be201"),
@@ -139,7 +140,8 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain
                     SubTitle = "Project 2",
                     Author = "Tere",
                     ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
-                    Type = Enums.PostType.Article
+                    Type = Enums.PostType.Article,
+                    Status = Enums.PostStatus.Published
                 },new Post()
                 {
                     Id = Guid.Parse("13febb22-f596-4b1e-b0a8-b11ad54be202"),
@@ -147,7 +149,8 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain
                     SubTitle = "Project 3",
                     Author = "Aya",
                     ColumnId =  Guid.Parse("12febb22-f596-4b1e-b0a8-b11ad54be200"),
-                    Type = Enums.PostType.Article
+                    Type = Enums.PostType.Article,
+                    Status = Enums.PostStatus.Published
                 }
             };
 

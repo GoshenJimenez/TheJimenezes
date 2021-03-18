@@ -47,6 +47,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models
         public bool LikesEnabled { get; set; }
         public bool RatingsEnabled { get; set; }
         public bool CommentsEnabled { get; set; }
+        public PostStatus Status {get;set;}
 
         [Required]
         public PostType Type { get; set; }

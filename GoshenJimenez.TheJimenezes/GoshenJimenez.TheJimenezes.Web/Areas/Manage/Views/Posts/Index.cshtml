@@ -1,0 +1,73 @@
+﻿@model GoshenJimenez.TheJimenezes.Web.Areas.Manage.ViewModels.Posts.IndexViewModel
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            foreach(var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Author</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a href="#" onclick="changeStatus('@item.Id','@item.Title', '@item.Status', '@Model.ColumnId')">
+                            <button type="button">Change Status</button>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div class="modal" tabindex="-1" role="dialog" id="change-status-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Do you want to change the status of <span class="change-status-modal-item-title"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/manage/posts/change-status" method="post">
+                <div class="modal-body">
+                    <p>Do you want to change the status of <span class="change-status-modal-item-title"></span>?</p>
+                    <input type="hidden" name="PostId" id="change-status-modal-item-id" />
+                    <input type="hidden" name="ColumnId" id="change-status-modal-column-id" />
+                    Status : <select class="form-select" name="Status" aria-label="" id="change-status-modal-item-status">
+                        <option value="Unpublished">Unpublished</option>
+                        <option value="Published">Published</option>
+                        <option value="Republished">Republished</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeStatus(id, title, status, columnId) {
+        console.log(id);
+        console.log(title);
+        console.log(status);
+        $(".change-status-modal-item-title").html(title);
+        $("#change-status-modal-item-id").val(id);
+        $("#change-status-modal-column-id").val(columnId);
+        $("#change-status-modal-item-status option[value=" + status + "]").prop('selected', true);
+        $("#change-status-modal").modal("show");
+    }
+</script>
