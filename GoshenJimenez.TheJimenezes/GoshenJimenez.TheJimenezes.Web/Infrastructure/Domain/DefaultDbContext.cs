@@ -22,6 +22,12 @@ namespace GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain
         public DbSet<User> Users { get; set; }
         public DbSet<UserLogin> UserLogins { get; set; }
 
+        public DbSet<ChatThread> ChatThreads { get; set; }
+
+        public DbSet<ChatUser> ChatUsers { get; set; }
+
+        public DbSet<ChatMessage> ChatMessages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
