@@ -149,3 +149,4 @@ C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenez
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Posts\Index.cshtml.g.cs
 C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\goshe\OneDrive\Documents\Personal\TheJimenezes\GoshenJimenez.TheJimenezes\GoshenJimenez.TheJimenezes.Web\obj\Debug\netcoreapp3.1\Razor\Views\Chats\Index.cshtml.g.cs

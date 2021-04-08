@@ -8,6 +8,20 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "ChatThreads",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatThreads", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Columns",
                 columns: table => new
                 {
@@ -42,6 +56,61 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChatMessages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    ChatThreadId = table.Column<Guid>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: true),
+                    Message = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatMessages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChatMessages_ChatThreads_ChatThreadId",
+                        column: x => x.ChatThreadId,
+                        principalTable: "ChatThreads",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ChatMessages_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChatUsers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: true),
+                    ChatThreadId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChatUsers_ChatThreads_ChatThreadId",
+                        column: x => x.ChatThreadId,
+                        principalTable: "ChatThreads",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ChatUsers_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -234,38 +303,58 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                 columns: new[] { "Id", "BannerUrl", "ColumnType", "CreatedAt", "IconUrl", "Layout", "SubTitle", "Title", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 3, 17, 6, 12, 4, 382, DateTimeKind.Utc).AddTicks(9532), "", null, "", "Projects", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(333) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4467), "", null, "", "Programming", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4481) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4622), "", null, "", "Tech Talk", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4624) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4630), "", null, "", "Parallax", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4631) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4635), "", null, "", "Parallax II", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4636) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4644), "", null, "", "Travel Logs", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4645) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4649), "", null, "", "Food Reviews", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4650) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4654), "", null, "", "Fambam!", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4655) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4658), "", null, "", "Xiah's World", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4659) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4664), "", null, "", "Ayu's Corner", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4665) },
-                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4669), "", null, "", "Sights and Visions", new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4670) }
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), null, 0, new DateTime(2021, 3, 31, 6, 41, 50, 40, DateTimeKind.Utc).AddTicks(5709), "", null, "", "Projects", new DateTime(2021, 3, 31, 6, 41, 50, 40, DateTimeKind.Utc).AddTicks(6892) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"), null, 0, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2845), "", null, "", "Programming", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2863) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"), null, 0, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2961), "", null, "", "Tech Talk", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2962) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"), null, 1, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2970), "", null, "", "Parallax", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2971) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"), null, 1, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2977), "", null, "", "Parallax II", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2978) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"), null, 2, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2990), "", null, "", "Travel Logs", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2991) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"), null, 2, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2996), "", null, "", "Food Reviews", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2997) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"), null, 3, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3002), "", null, "", "Fambam!", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3004) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"), null, 3, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3008), "", null, "", "Xiah's World", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3010) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"), null, 3, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3017), "", null, "", "Ayu's Corner", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3018) },
+                    { new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"), null, 3, new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3023), "", null, "", "Sights and Visions", new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3024) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "Status", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be200"), "Goshen", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 17, 6, 12, 4, 385, DateTimeKind.Utc).AddTicks(9373), false, null, 0, false, false, 0m, false, 1, "Project 1", "Project 1", 0, new DateTime(2021, 3, 17, 6, 12, 4, 385, DateTimeKind.Utc).AddTicks(9403), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be200"), "Goshen", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(4283), false, null, 0, false, false, 0m, false, 1, "Project 1", "Project 1", 0, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(4302), null, 0 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "Status", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be201"), "Tere", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5726), false, null, 0, false, false, 0m, false, 1, "Project 2", "Project 2", 0, new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5739), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be201"), "Tere", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9769), false, null, 0, false, false, 0m, false, 1, "Project 2", "Project 2", 0, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9777), null, 0 });
 
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "BannerUrl", "ColumnId", "Comments", "CommentsEnabled", "Content", "CreatedAt", "IsStarred", "Layout", "Likes", "LikesEnabled", "MembersOnly", "Rating", "RatingsEnabled", "Status", "SubTitle", "Title", "Type", "UpdatedAt", "UserId", "Views" },
-                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be202"), "Aya", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5825), false, null, 0, false, false, 0m, false, 1, "Project 3", "Project 3", 0, new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5826), null, 0 });
+                values: new object[] { new Guid("13febb22-f596-4b1e-b0a8-b11ad54be202"), "Aya", null, new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"), 0, false, null, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9884), false, null, 0, false, false, 0m, false, 1, "Project 3", "Project 3", 0, new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9886), null, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attachments_PostId",
                 table: "Attachments",
                 column: "PostId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatMessages_ChatThreadId",
+                table: "ChatMessages",
+                column: "ChatThreadId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatMessages_UserId",
+                table: "ChatMessages",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatUsers_ChatThreadId",
+                table: "ChatUsers",
+                column: "ChatThreadId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatUsers_UserId",
+                table: "ChatUsers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
@@ -319,6 +408,12 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                 name: "Attachments");
 
             migrationBuilder.DropTable(
+                name: "ChatMessages");
+
+            migrationBuilder.DropTable(
+                name: "ChatUsers");
+
+            migrationBuilder.DropTable(
                 name: "Comments");
 
             migrationBuilder.DropTable(
@@ -329,6 +424,9 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserLogins");
+
+            migrationBuilder.DropTable(
+                name: "ChatThreads");
 
             migrationBuilder.DropTable(
                 name: "Posts");

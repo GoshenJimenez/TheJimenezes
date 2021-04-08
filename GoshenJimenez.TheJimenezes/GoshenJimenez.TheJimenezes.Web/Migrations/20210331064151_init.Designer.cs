@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoshenJimenez.TheJimenezes.Web.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20210317061205_init")]
+    [Migration("20210331064151_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,83 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                     b.ToTable("Attachments");
                 });
 
+            modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatMessage", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("ChatThreadId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatThreadId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatMessages");
+                });
+
+            modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatThread", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChatThreads");
+                });
+
+            modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatUser", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("ChatThreadId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatThreadId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatUsers");
+                });
+
             modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.Column", b =>
                 {
                     b.Property<Guid?>("Id")
@@ -113,111 +190,111 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"),
                             ColumnType = 0,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 382, DateTimeKind.Utc).AddTicks(9532),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 40, DateTimeKind.Utc).AddTicks(5709),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Projects",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(333)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 40, DateTimeKind.Utc).AddTicks(6892)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be201"),
                             ColumnType = 0,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4467),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2845),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Programming",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4481)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2863)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be202"),
                             ColumnType = 0,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4622),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2961),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Tech Talk",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4624)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2962)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be203"),
                             ColumnType = 1,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4630),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2970),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Parallax",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4631)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2971)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be204"),
                             ColumnType = 1,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4635),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2977),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Parallax II",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4636)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2978)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be205"),
                             ColumnType = 2,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4644),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2990),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Travel Logs",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4645)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2991)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be206"),
                             ColumnType = 2,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4649),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2996),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Food Reviews",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4650)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(2997)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be207"),
                             ColumnType = 3,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4654),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3002),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Fambam!",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4655)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3004)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be208"),
                             ColumnType = 3,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4658),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3008),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Xiah's World",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4659)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3010)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be209"),
                             ColumnType = 3,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4664),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3017),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Ayu's Corner",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4665)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3018)
                         },
                         new
                         {
                             Id = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be210"),
                             ColumnType = 3,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4669),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3023),
                             IconUrl = "",
                             SubTitle = "",
                             Title = "Sights and Visions",
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 383, DateTimeKind.Utc).AddTicks(4670)
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 41, DateTimeKind.Utc).AddTicks(3024)
                         });
                 });
 
@@ -389,7 +466,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             ColumnId = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"),
                             Comments = 0,
                             CommentsEnabled = false,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 385, DateTimeKind.Utc).AddTicks(9373),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(4283),
                             IsStarred = false,
                             Likes = 0,
                             LikesEnabled = false,
@@ -400,7 +477,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             SubTitle = "Project 1",
                             Title = "Project 1",
                             Type = 0,
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 385, DateTimeKind.Utc).AddTicks(9403),
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(4302),
                             Views = 0
                         },
                         new
@@ -410,7 +487,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             ColumnId = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"),
                             Comments = 0,
                             CommentsEnabled = false,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5726),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9769),
                             IsStarred = false,
                             Likes = 0,
                             LikesEnabled = false,
@@ -421,7 +498,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             SubTitle = "Project 2",
                             Title = "Project 2",
                             Type = 0,
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5739),
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9777),
                             Views = 0
                         },
                         new
@@ -431,7 +508,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             ColumnId = new Guid("12febb22-f596-4b1e-b0a8-b11ad54be200"),
                             Comments = 0,
                             CommentsEnabled = false,
-                            CreatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5825),
+                            CreatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9884),
                             IsStarred = false,
                             Likes = 0,
                             LikesEnabled = false,
@@ -442,7 +519,7 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                             SubTitle = "Project 3",
                             Title = "Project 3",
                             Type = 0,
-                            UpdatedAt = new DateTime(2021, 3, 17, 6, 12, 4, 386, DateTimeKind.Utc).AddTicks(5826),
+                            UpdatedAt = new DateTime(2021, 3, 31, 6, 41, 50, 44, DateTimeKind.Utc).AddTicks(9886),
                             Views = 0
                         });
                 });
@@ -564,6 +641,28 @@ namespace GoshenJimenez.TheJimenezes.Web.Migrations
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatMessage", b =>
+                {
+                    b.HasOne("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatThread", "ChatThread")
+                        .WithMany()
+                        .HasForeignKey("ChatThreadId");
+
+                    b.HasOne("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatUser", b =>
+                {
+                    b.HasOne("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.ChatThread", "ChatThread")
+                        .WithMany()
+                        .HasForeignKey("ChatThreadId");
+
+                    b.HasOne("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("GoshenJimenez.TheJimenezes.Web.Infrastructure.Domain.Models.Comment", b =>

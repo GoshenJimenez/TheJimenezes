@@ -30,6 +30,14 @@ GoshenJimenez.TheJimenezes.Web/bin
 GoshenJimenez.TheJimenezes.Web/debug
 GoshenJimenez.TheJimenezes.Web/Debug
 GoshenJimenez.TheJimenezes.Web/.vs
+vs/
+/vs
+/obj
+/GoshenJimenez.TheJimenezes/obj
+/GoshenJimenez.TheJimenezes/bin
+/GoshenJimenez.TheJimenezes/debug
+/GoshenJimenez.TheJimenezes/Debug
+
 
 # Roslyn cache directories
 *.ide/
